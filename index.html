@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mein YouTube Creator-Dashboard</title>
+    <link rel="icon" type="image/png" href="youtube.png">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-</head>
+    <script type="text/javascript" src="https://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=X04lzUO55feAMLcpKd-EsUfpvHm0XpK5Fv1cbLMHITzvOrMVxwNe_Xn-d5RQ6OVbOyVGgnvOSatYi-XLocTyucTMQk7V_tlZLjilZSKGhBDwsfJJA5OVl7NISD_XAMIy-qTdFnVaa4-WVqSUCDJC542yLx8mcaAa0Yco1nd-LJ0haiyeFWD2JcnwnlCiQz8qsSJl5BspjD5yIEX35xgR_PU08MRe6y7EXnRl-_Tpazs" charset="UTF-8"></script></head>
 <body>
     <header>
         <h1>Mein YouTube Creator-Dashboard</h1>
-        <button id="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</button>
     </header>
     <main>
         <div class="categories-container">
             <section>
                 <h2>Youtube</h2>
                 <div class="button-container">
-                    <a href="https://studio.youtube.com" target="_blank" class="button red"><i class="fas fa-chart-line"></i> Analytics</a>
-                    <a href="https://www.canva.com" target="_blank" class="button red"><i class="fas fa-dollar-sign"></i> Monetarisierung</a>
-                    <a href="https://www.youtube.com" target="_blank" class="button red"><i class="fas fa-video"></i> Mein Youtube Kanal</a>
+                    <a href="https://studio.youtube.com/channel/UCgEPVJ-FOflkmvYRHIPkpVA/analytics/tab-overview/period-default" target="_blank" class="button red"><i class="fas fa-chart-line"></i> Analytics</a>
+                    <a href="https://studio.youtube.com/channel/UCgEPVJ-FOflkmvYRHIPkpVA/analytics/tab-earn_revenue/monetization-MONETIZATION_TYPE_WATCH_PAGE_ADS/period-default" target="_blank" class="button red"><i class="fas fa-dollar-sign"></i> Monetarisierung</a>
+                    <a href="https://youtube.com/channel/UCgEPVJ-FOflkmvYRHIPkpVA?si=kAm6zbqbj3Ce2pQt" target="_blank" class="button red"><i class="fas fa-video"></i> Mein Youtube Kanal</a>
                 </div>
             </section>
             <section>
@@ -32,15 +32,15 @@
             <section>
                 <h2>Musik erstellen</h2>
                 <div class="button-container">
-                    <a href="https://www.canva.com" target="_blank" class="button blue"><i class="fas fa-microphone"></i> Suno</a>
+                    <a href="https://suno.com/create?wid=default" target="_blank" class="button blue"><i class="fas fa-microphone"></i> Suno</a>
                 </div>
             </section>
             <section>
                 <h2>Thumbnail erstellen</h2>
                 <div class="button-container">
-                    <a href="https://www.canva.com" target="_blank" class="button blue"><i class="fas fa-image"></i> Canva</a>
-                    <a href="https://www.pixabay.com" target="_blank" class="button gray"><i class="fas fa-images"></i> Pixabay</a>
-                    <a href="https://www.pexels.com" target="_blank" class="button gray"><i class="fas fa-images"></i> Pexels</a>
+                    <a href="https://www.canva.com/design/DAGeKb0CUHk/O5VyMYRHq4_bX9oRqCOJjQ/edit" target="_blank" class="button blue"><i class="fas fa-image"></i> Canva</a>
+                    <a href="https://pixabay.com/photos/" target="_blank" class="button gray"><i class="fas fa-images"></i> Pixabay</a>
+                    <a href="https://www.pexels.com/de-de/" target="_blank" class="button gray"><i class="fas fa-images"></i> Pexels</a>
                 </div>
             </section>
         </div>
@@ -51,10 +51,11 @@
         function openPrompt() {
             const topic = prompt("Thema für den Liedtext eingeben:");
             if (topic) {
-                const promptText = `Write a song about ${topic}. Include verses, chorus, and a bridge. Make it emotional and engaging.`;
+                const promptText = `Можешь ли ты сейчас создать для меня 10 песенных текстов на тему «${topic}»? Пусть они будут библейскими, христианскими и содержат упоминания Христа, Бога и Духа Святого в каждом тексте. Важно, чтобы тексты были глубокими, а не поверхностными.
+Формат каждого текста: Куплет 1, Куплет 2, Припев, Бридж. Пожалуйста, сделай каждый текст уникальным, чтобы не повторялись формулировки из предыдущих песен`;
                 navigator.clipboard.writeText(promptText).then(() => {
-                    alert("Prompt copied to clipboard. Please paste it into ChatGPT.");
-                    window.open("https://chat.openai.com", "_blank");
+                    alert("Text in die Zwischenablage kopiert. Bitte fügen Sie es in ChatGPT ein.");
+                    window.open("https://chatgpt.com/", "_blank");
                 });
             }
         }
