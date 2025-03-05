@@ -44,10 +44,48 @@
                 </div>
             </section>
         </div>
-    </main>    <footer>
+    </main>    
+    <footer>
         <p></p>
     </footer>
-    Можешь ли ты сейчас создать для меня 10 песенных текстов на тему «Ja lublju Tebja»? Пусть они будут библейскими, христианскими и содержат упоминания Христа, Бога и Духа Святого в каждом тексте. Важно, чтобы тексты были глубокими, а не поверхностными.
-    Формат каждого текста: Куплет 1, Куплет 2, Припев, Бридж. Пожалуйста, сделай каждый текст уникальным, чтобы не повторялись формулировки из предыдущих песен
+    <div id="promptModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePromptModal()">&times;</span>
+            <p>Bitte kopieren Sie den folgenden Text und fügen Sie ihn in ChatGPT ein:</p>
+            <textarea id="promptText" rows="10" cols="50"></textarea>
+            <br>
+            <button onclick="copyPrompt()">Text kopieren</button>
+        </div>
+    </div>
+    <script>
+        function openPrompt() {
+            const topic = prompt("Thema für den Liedtext eingeben:");
+            if (topic) {
+                const promptText = `Можешь ли ты сейчас создать для меня 10 песенных текстов на тему «${topic}»? Пусть они будут библейскими, христианскими и содержат упоминания Христа, Бога и Духа Святого в каждом тексте. Важно, чтобы тексты были глубокими, а не поверхностными. Формат каждого текста: Куплет 1, Куплет 2, Припев, Бридж. Пожалуйста, сделай каждый текст уникальным, чтобы не повторялись формулировки из предыдущих песен`;
+                document.getElementById('promptText').value = promptText;
+                document.getElementById('promptModal').style.display = 'block';
+            }
+        }
+    
+        function copyPrompt() {
+            const promptText = document.getElementById('promptText');
+            promptText.select();
+            document.execCommand('copy');
+            alert('Text in die Zwischenablage kopiert.');
+            closePromptModal();
+            setTimeout(openChatGPT, 500); // Add a delay to ensure the text is copied before opening ChatGPT
+        }
+    
+        function openChatGPT() {
+            let chatWindow = window.open("https://chatgpt.com/", "_blank");
+            if (!chatWindow) {
+                alert("Bitte erlauben Sie Pop-ups für diese Website und versuchen Sie es erneut.");
+            }
+        }
+    
+        function closePromptModal() {
+            document.getElementById('promptModal').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
