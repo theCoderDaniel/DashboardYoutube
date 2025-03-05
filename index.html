@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mein YouTube Creator-Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Mein YouTube Creator-Dashboard</h1>
+        <button id="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</button>
+    </header>
+    <main>
+        <div class="categories-container">
+            <section>
+                <h2>Youtube</h2>
+                <div class="button-container">
+                    <a href="https://studio.youtube.com" target="_blank" class="button red"><i class="fas fa-chart-line"></i> Analytics</a>
+                    <a href="https://www.canva.com" target="_blank" class="button red"><i class="fas fa-dollar-sign"></i> Monetarisierung</a>
+                    <a href="https://www.youtube.com" target="_blank" class="button red"><i class="fas fa-video"></i> Mein Youtube Kanal</a>
+                </div>
+            </section>
+            <section>
+                <h2>Liedetext generieren</h2>
+                <div class="button-container">
+                    <button class="button blue" onclick="openPrompt()"><i class="fas fa-music"></i> Promt</button>
+                </div>
+            </section>
+            <section>
+                <h2>Musik erstellen</h2>
+                <div class="button-container">
+                    <a href="https://www.canva.com" target="_blank" class="button blue"><i class="fas fa-microphone"></i> Suno</a>
+                </div>
+            </section>
+            <section>
+                <h2>Thumbnail erstellen</h2>
+                <div class="button-container">
+                    <a href="https://www.canva.com" target="_blank" class="button blue"><i class="fas fa-image"></i> Canva</a>
+                    <a href="https://www.pixabay.com" target="_blank" class="button gray"><i class="fas fa-images"></i> Pixabay</a>
+                    <a href="https://www.pexels.com" target="_blank" class="button gray"><i class="fas fa-images"></i> Pexels</a>
+                </div>
+            </section>
+        </div>
+    </main>    <footer>
+        <p></p>
+    </footer>
+    <script>
+        function openPrompt() {
+            const topic = prompt("Thema für den Liedtext eingeben:");
+            if (topic) {
+                const promptText = `Write a song about ${topic}. Include verses, chorus, and a bridge. Make it emotional and engaging.`;
+                navigator.clipboard.writeText(promptText).then(() => {
+                    alert("Prompt copied to clipboard. Please paste it into ChatGPT.");
+                    window.open("https://chat.openai.com", "_blank");
+                });
+            }
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+</body>
+</html>
