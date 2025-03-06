@@ -8,84 +8,109 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script type="text/javascript" src="https://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=X04lzUO55feAMLcpKd-EsUfpvHm0XpK5Fv1cbLMHITzvOrMVxwNe_Xn-d5RQ6OVbOyVGgnvOSatYi-XLocTyucTMQk7V_tlZLjilZSKGhBDwsfJJA5OVl7NISD_XAMIy-qTdFnVaa4-WVqSUCDJC542yLx8mcaAa0Yco1nd-LJ0haiyeFWD2JcnwnlCiQz8qsSJl5BspjD5yIEX35xgR_PU08MRe6y7EXnRl-_Tpazs" charset="UTF-8"></script></head>
+</head>
 <body>
     <header>
         <h1>Mein YouTube Creator-Dashboard</h1>
     </header>
     <main>
         <div class="categories-container">
-            <section>
+            <section id="youtube">
                 <h2>Youtube</h2>
                 <div class="button-container">
                     <a href="https://studio.youtube.com/channel/UCgEPVJ-FOflkmvYRHIPkpVA/analytics/tab-overview/period-default" target="_blank" class="button red"><i class="fas fa-chart-line"></i> Analytics</a>
                     <a href="https://studio.youtube.com/channel/UCgEPVJ-FOflkmvYRHIPkpVA/analytics/tab-earn_revenue/monetization-MONETIZATION_TYPE_WATCH_PAGE_ADS/period-default" target="_blank" class="button red"><i class="fas fa-dollar-sign"></i> Monetarisierung</a>
                     <a href="https://youtube.com/channel/UCgEPVJ-FOflkmvYRHIPkpVA?si=kAm6zbqbj3Ce2pQt" target="_blank" class="button red"><i class="fas fa-video"></i> Mein Youtube Kanal</a>
+                    <a href="#" class="button red" onclick="openSubscriberModal()"><i class="fas fa-users"></i> Abonnentenanzahl</a>
                 </div>
             </section>
-            <section>
+            <section id="lyrics">
                 <h2>Liedetext generieren</h2>
                 <div class="button-container">
                     <button class="button blue" onclick="openPrompt()"><i class="fas fa-music"></i> Promt</button>
                 </div>
             </section>
-            <section>
+            <section id="music">
                 <h2>Musik erstellen</h2>
                 <div class="button-container">
                     <a href="https://suno.com/create?wid=default" target="_blank" class="button blue"><i class="fas fa-microphone"></i> Suno</a>
                 </div>
             </section>
-            <section>
+            <section id="thumbnail">
                 <h2>Thumbnail erstellen</h2>
                 <div class="button-container">
                     <a href="https://www.canva.com/design/DAGeKb0CUHk/O5VyMYRHq4_bX9oRqCOJjQ/edit" target="_blank" class="button blue"><i class="fas fa-image"></i> Canva</a>
                     <a href="https://pixabay.com/photos/" target="_blank" class="button gray"><i class="fas fa-images"></i> Pixabay</a>
                     <a href="https://www.pexels.com/de-de/" target="_blank" class="button gray"><i class="fas fa-images"></i> Pexels</a>
                 </div>
+                <div class="button-container">
+                    <a href="https://example.com/thumbnail-preview" target="_blank" class="button blue"><i class="fas fa-eye"></i> Thumbnail Vorschau</a>
+                </div>
             </section>
         </div>
     </main>    
-    <footer>
-        <p></p>
-    </footer>
     <div id="promptModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closePromptModal()">&times;</span>
             <p>Bitte kopieren Sie den folgenden Text und fügen Sie ihn in ChatGPT ein:</p>
-            <textarea id="promptText" rows="10" cols="50"></textarea>
+            <textarea id="promptText" rows="10" cols="50" readonly></textarea>
             <br>
-            <button onclick="copyPrompt()">Text kopieren</button>
+            <button onclick="copyPrompt()">Text kopieren und ChatGPT öffnen</button>
+        </div>
+    </div>
+    <div id="subscriberModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSubscriberModal()">&times;</span>
+            <h2>Aktuelle Abonnentenanzahl</h2>
+            <p id="subscriberCount">Lade...</p>
         </div>
     </div>
     <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // ...existing code...
+        });
+
         function openPrompt() {
-            const topic = prompt("Thema für den Liedtext eingeben:");
-            if (topic) {
-                const promptText = `Можешь ли ты сейчас создать для меня 10 песенных текстов на тему «${topic}»? Пусть они будут библейскими, христианскими и содержат упоминания Христа, Бога и Духа Святого в каждом тексте. Важно, чтобы тексты были глубокими, а не поверхностными. Формат каждого текста: Куплет 1, Куплет 2, Припев, Бридж. Пожалуйста, сделай каждый текст уникальным, чтобы не повторялись формулировки из предыдущих песен`;
-                document.getElementById('promptText').value = promptText;
-                document.getElementById('promptModal').style.display = 'block';
-            }
+            // ...existing code...
         }
     
         function copyPrompt() {
-            const promptText = document.getElementById('promptText');
-            promptText.select();
-            document.execCommand('copy');
-            alert('Text in die Zwischenablage kopiert.');
-            closePromptModal();
-            setTimeout(openChatGPT, 500); // Add a delay to ensure the text is copied before opening ChatGPT
+            // ...existing code...
         }
     
         function openChatGPT() {
-            let chatWindow = window.open("https://chatgpt.com/", "_blank");
-            if (!chatWindow) {
-                alert("Bitte erlauben Sie Pop-ups für diese Website und versuchen Sie es erneut.");
-            }
+            // ...existing code...
         }
     
         function closePromptModal() {
-            document.getElementById('promptModal').style.display = 'none';
+            // ...existing code...
+        }
+
+        function openSubscriberModal() {
+            document.getElementById('subscriberModal').style.display = 'block';
+            fetchSubscriberCount();
+        }
+
+        function closeSubscriberModal() {
+            document.getElementById('subscriberModal').style.display = 'none';
+        }
+
+        async function fetchSubscriberCount() {
+            const apiKey = 'YOUR_API_KEY'; // Replace with your actual API key
+            const channelId = 'UCgEPVJ-FOflkmvYRHIPkpVA'; // Replace with your actual channel ID
+            const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                const subscriberCount = data.items[0].statistics.subscriberCount;
+                document.getElementById('subscriberCount').innerText = subscriberCount;
+            } catch (error) {
+                console.error('Error fetching subscriber count:', error);
+                document.getElementById('subscriberCount').innerText = 'Fehler beim Laden der Abonnentenanzahl';
+            }
         }
     </script>
+    <script src="script.js"></script>
 </body>
 </html>
