@@ -6,8 +6,26 @@
     <title>Mein YouTube Creator-Dashboard</title>
     <link rel="icon" type="image/png" href="youtube.png">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        header h1 {
+            color: #ffffff; /* Very white */
+            font-size: 2.5em; /* Larger font size */
+            font-family: 'Poppins', sans-serif; /* Modern font */
+        }
+        .button {
+            color: #d3d3d3; /* Slightly darker than white */
+            background-color: #286c5e; /* Updated green */
+            border-radius: 10px; /* Rounded corners */
+            padding: 12px 24px; /* Adjusted padding */
+            font-size: 1em; /* Adjusted font size */
+        }
+        .button:hover {
+            background-color: #1f554a; /* Darker green on hover */
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.5); /* Glow effect */
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -16,35 +34,35 @@
     <main>
         <div class="categories-container">
             <section id="youtube">
-                <h2>Youtube</h2>
+                <h2><i class="fas fa-chart-line"></i> Youtube</h2>
                 <div class="button-container">
-                    <a href="https://studio.youtube.com/channel/UCgEPVJ-FOflkmvYRHIPkpVA/analytics/tab-overview/period-default" target="_blank" class="button red"><i class="fas fa-chart-line"></i> Analytics</a>
-                    <a href="https://studio.youtube.com/channel/UCgEPVJ-FOflkmvYRHIPkpVA/analytics/tab-earn_revenue/monetization-MONETIZATION_TYPE_WATCH_PAGE_ADS/period-default" target="_blank" class="button red"><i class="fas fa-dollar-sign"></i> Monetarisierung</a>
-                    <a href="https://youtube.com/channel/UCgEPVJ-FOflkmvYRHIPkpVA?si=kAm6zbqbj3Ce2pQt" target="_blank" class="button red"><i class="fas fa-video"></i> Mein Youtube Kanal</a>
-                    <a href="#" class="button red" onclick="openSubscriberModal()"><i class="fas fa-users"></i> Abonnentenanzahl</a>
+                    <a href="https://studio.youtube.com/channel/UCgEPVJ-FOflkmvYRHIPkpVA/analytics/tab-overview/period-default" target="_blank" class="button">Analytics</a>
+                    <a href="https://studio.youtube.com/channel/UCgEPVJ-FOflkmvYRHIPkpVA/analytics/tab-earn_revenue/monetization-MONETIZATION_TYPE_WATCH_PAGE_ADS/period-default" target="_blank" class="button">Monetarisierung</a>
+                    <a href="https://youtube.com/channel/UCgEPVJ-FOflkmvYRHIPkpVA?si=kAm6zbqbj3Ce2pQt" target="_blank" class="button">Mein Youtube Kanal</a>
+                    <a href="#" class="button" onclick="openSubscriberModal()">Abonnentenanzahl</a>
                 </div>
             </section>
             <section id="lyrics">
-                <h2>Liedetext generieren</h2>
+                <h2><i class="fas fa-music"></i> Liedetext generieren</h2>
                 <div class="button-container">
-                    <button class="button blue" onclick="openPrompt()"><i class="fas fa-music"></i> Promt</button>
+                    <button class="button" onclick="openPrompt()">Promt</button>
                 </div>
             </section>
             <section id="music">
-                <h2>Musik erstellen</h2>
+                <h2><i class="fas fa-microphone"></i> Musik erstellen</h2>
                 <div class="button-container">
-                    <a href="https://suno.com/create?wid=default" target="_blank" class="button blue"><i class="fas fa-microphone"></i> Suno</a>
+                    <a href="https://suno.com/create?wid=default" target="_blank" class="button">Suno</a>
                 </div>
             </section>
             <section id="thumbnail">
-                <h2>Thumbnail erstellen</h2>
+                <h2><i class="fas fa-image"></i> Thumbnail erstellen</h2>
                 <div class="button-container">
-                    <a href="https://www.canva.com/design/DAGeKb0CUHk/O5VyMYRHq4_bX9oRqCOJjQ/edit" target="_blank" class="button blue"><i class="fas fa-image"></i> Canva</a>
-                    <a href="https://pixabay.com/photos/" target="_blank" class="button gray"><i class="fas fa-images"></i> Pixabay</a>
-                    <a href="https://www.pexels.com/de-de/" target="_blank" class="button gray"><i class="fas fa-images"></i> Pexels</a>
+                    <a href="https://www.canva.com/design/DAGeKb0CUHk/O5VyMYRHq4_bX9oRqCOJjQ/edit" target="_blank" class="button">Canva</a>
+                    <a href="https://pixabay.com/photos/" target="_blank" class="button">Pixabay</a>
+                    <a href="https://www.pexels.com/de-de/" target="_blank" class="button">Pexels</a>
                 </div>
                 <div class="button-container">
-                    <a href="https://example.com/thumbnail-preview" target="_blank" class="button blue"><i class="fas fa-eye"></i> Thumbnail Vorschau</a>
+                    <a href="https://example.com/thumbnail-preview" target="_blank" class="button">Thumbnail Vorschau</a>
                 </div>
             </section>
         </div>
