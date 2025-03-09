@@ -1,39 +1,3 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    const isDarkModeEnabled = localStorage.getItem('darkMode') === 'enabled';
-
-    if (isDarkModeEnabled) {
-        document.body.classList.add('dark-mode');
-        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-    } else {
-        document.body.classList.remove('dark-mode');
-        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-    }
-
-    darkModeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        const isDarkMode = document.body.classList.contains('dark-mode');
-        localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
-        darkModeToggle.innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-    });
-
-    const thumbnailUpload = document.getElementById('thumbnailUpload');
-    const thumbnailImage = document.getElementById('thumbnailImage');
-
-    thumbnailUpload.addEventListener('change', (event) => {
-        const file = event.target.files[0];
-        if (file && file.type.startsWith('image/')) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                thumbnailImage.src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        } else {
-            alert('Bitte wählen Sie eine gültige Bilddatei aus.');
-        }
-    });
-});
-
 function openPrompt() {
     const topic = prompt("Thema für den Liedtext eingeben:");
     if (topic) {
@@ -60,12 +24,4 @@ function openChatGPT() {
 
 function closePromptModal() {
     document.getElementById('promptModal').style.display = 'none';
-}
-
-function openThumbnailModal() {
-    document.getElementById('thumbnailModal').style.display = 'block';
-}
-
-function closeThumbnailModal() {
-    document.getElementById('thumbnailModal').style.display = 'none';
 }
