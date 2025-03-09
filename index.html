@@ -12,7 +12,7 @@
         header h1 {
             color: #ffffff; /* Very white */
             font-size: 2.5em; /* Larger font size */
-            font-family: 'Poppins', sans-serif; /* Modern font */
+            font-family: 'Inter', sans-serif; /* Unified font */
         }
         .button {
             color: #d3d3d3; /* Slightly darker than white */
@@ -29,40 +29,46 @@
 </head>
 <body>
     <header>
+        <img src="Logo.png" alt="Logo" style="height: 50px; float: left; margin-right: 20px;">
         <h1>Mein YouTube Creator-Dashboard</h1>
     </header>
     <main>
         <div class="categories-container">
             <section id="youtube">
-                <h2><i class="fas fa-chart-line"></i> Youtube</h2>
+                <h2><i class="fas fa-chart-line"></i> YouTube</h2>
+                <p>Verwalten Sie Ihre YouTube-Analytics, Monetarisierung und Kanal.</p>
                 <div class="button-container">
                     <a href="https://studio.youtube.com/channel/UCgEPVJ-FOflkmvYRHIPkpVA/analytics/tab-overview/period-default" target="_blank" class="button">Analytics</a>
                     <a href="https://studio.youtube.com/channel/UCgEPVJ-FOflkmvYRHIPkpVA/analytics/tab-earn_revenue/monetization-MONETIZATION_TYPE_WATCH_PAGE_ADS/period-default" target="_blank" class="button">Monetarisierung</a>
-                    <a href="https://youtube.com/channel/UCgEPVJ-FOflkmvYRHIPkpVA?si=kAm6zbqbj3Ce2pQt" target="_blank" class="button">Mein Youtube Kanal</a>
-                    <a href="#" class="button" onclick="openSubscriberModal()">Abonnentenanzahl</a>
+                    <a href="https://youtube.com/channel/UCgEPVJ-FOflkmvYRHIPkpVA?si=kAm6zbqbj3Ce2pQt" target="_blank" class="button">Mein YouTube Kanal</a>
+                    <a href="https://www.youtube.com/upload" target="_blank" class="button">Video hochladen</a>
                 </div>
             </section>
             <section id="lyrics">
-                <h2><i class="fas fa-music"></i> Liedetext generieren</h2>
+                <h2><i class="fas fa-music"></i> Liedtext generieren</h2>
+                <p>Erstellen Sie Liedtexte basierend auf Ihren Vorgaben.</p>
                 <div class="button-container">
-                    <button class="button" onclick="openPrompt()">Promt</button>
+                    <button class="button" onclick="openPrompt()">Prompt</button>
                 </div>
             </section>
             <section id="music">
                 <h2><i class="fas fa-microphone"></i> Musik erstellen</h2>
+                <p>Erstellen Sie Musik mit verschiedenen Tools und Ressourcen.</p>
                 <div class="button-container">
-                    <a href="https://suno.com/create?wid=default" target="_blank" class="button">Suno</a>
+                    <a href="https://suno.com/create?wid=default" target="_blank" class="button">Suno Neu</a>
+                    <a href="https://sunoai.ai/" target="_blank" class="button">Suno Alt</a>
                 </div>
             </section>
             <section id="thumbnail">
                 <h2><i class="fas fa-image"></i> Thumbnail erstellen</h2>
+                <p>Erstellen und bearbeiten Sie Thumbnails für Ihre Videos.</p>
                 <div class="button-container">
                     <a href="https://www.canva.com/design/DAGeKb0CUHk/O5VyMYRHq4_bX9oRqCOJjQ/edit" target="_blank" class="button">Canva</a>
                     <a href="https://pixabay.com/photos/" target="_blank" class="button">Pixabay</a>
                     <a href="https://www.pexels.com/de-de/" target="_blank" class="button">Pexels</a>
                 </div>
                 <div class="button-container">
-                    <a href="https://example.com/thumbnail-preview" target="_blank" class="button">Thumbnail Vorschau</a>
+                    <a href="https://thumbnailpreview.com/" target="_blank" class="button">Thumbnail Vorschau</a>
                 </div>
             </section>
         </div>
@@ -76,59 +82,6 @@
             <button onclick="copyPrompt()">Text kopieren und ChatGPT öffnen</button>
         </div>
     </div>
-    <div id="subscriberModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeSubscriberModal()">&times;</span>
-            <h2>Aktuelle Abonnentenanzahl</h2>
-            <p id="subscriberCount">Lade...</p>
-        </div>
-    </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            // ...existing code...
-        });
-
-        function openPrompt() {
-            // ...existing code...
-        }
-    
-        function copyPrompt() {
-            // ...existing code...
-        }
-    
-        function openChatGPT() {
-            // ...existing code...
-        }
-    
-        function closePromptModal() {
-            // ...existing code...
-        }
-
-        function openSubscriberModal() {
-            document.getElementById('subscriberModal').style.display = 'block';
-            fetchSubscriberCount();
-        }
-
-        function closeSubscriberModal() {
-            document.getElementById('subscriberModal').style.display = 'none';
-        }
-
-        async function fetchSubscriberCount() {
-            const apiKey = 'YOUR_API_KEY'; // Replace with your actual API key
-            const channelId = 'UCgEPVJ-FOflkmvYRHIPkpVA'; // Replace with your actual channel ID
-            const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
-
-            try {
-                const response = await fetch(url);
-                const data = await response.json();
-                const subscriberCount = data.items[0].statistics.subscriberCount;
-                document.getElementById('subscriberCount').innerText = subscriberCount;
-            } catch (error) {
-                console.error('Error fetching subscriber count:', error);
-                document.getElementById('subscriberCount').innerText = 'Fehler beim Laden der Abonnentenanzahl';
-            }
-        }
-    </script>
     <script src="script.js"></script>
 </body>
 </html>
